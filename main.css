@@ -31,6 +31,11 @@ p{line-height: 30px;margin-top: 2%;font-size: 18px;color: #868e96;}
 .w_tit{display: inline-block;font-size: 1.5em;margin-left: 15px;
   font-family: 'Nanum Gothic', sans-serif;margin-top:5%;margin-left: 20%;color: #868e96;}
 .map{margin-top: 10%;margin-left: 5%;}
+.th{font-size: 6em;margin-top: 150px;text-align: center;width: 800px;margin-left: 28%;color:#49669e;}
+.git_fr,.email_fr{width: 800px;height: auto;margin: 0 auto;margin-top: 80px;}
+.git,.em{font-size: 20px;color: #868e96;font-style: italic;}
+.copy{float: right;margin-top: 18%;margin-right: 13px;color: #868e96;font-weight: 600;font-style: italic;}
+
 
 
 
