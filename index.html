@@ -10,8 +10,25 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>  
+    <script src="jquery.mousewheel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $(".con").on("mousewheel",function(event,delta){
+           	event.preventDefault();      
+          
+               if(delta > 0){
+                   	 var prev = $(this).prev().offset().top;
+                   	 $("html,body").stop().animate({"scrollTop":prev},1400,'easeInOutExpo');
+                }else if(delta < 0){
+                 	var next = $(this).next().offset().top;
+                   	$("html,body").stop().animate({"scrollTop":next},1400,'easeInOutExpo');
+                };
+            })
+            
+        })
+    </script>
 </head>
 <body>
     <div class="wrap">
@@ -26,12 +43,12 @@
                 </ul>
             </div>
         </header>
-        <div id="main">
+        <div id="main" class="con">
             <div class="tit_box">
                 <h1 class="tit">HAZZY'S PORTFOLIO</h1>
             </div>
         </div>
-        <div id="about">
+        <div id="about" class="con">
             <div class="col_fr">
                 <h2 class="a_tit"><i>ABOUT ME</i></h2>
                 <div class="col1">
@@ -53,29 +70,60 @@
                 </div>
             </div>
         </div>
-        <div id="skill">
+        <div id="skill" class="con">
             <h2 class="a_tit"><i>SKILL</i></h2>
                 <ul class="s_box">
                     <li class="s_it a">HTML</li>
                     <li class="s_it b">CSS</li>
                     <li class="s_it c">JQuery</li>
-                    <li class="s_it d">JavaSciript</li>
+                    <li class="s_it d">JavaScript</li>
                     <li class="s_it e">Illustrator</li>
                     <li class="s_it f">Photosop</li>
                     <li class="s_it g">Plugin</li>
                     <li class="s_it h">반응형</li>
                 </ul>
         </div>
-        <div id="pf">
+        <div id="pf" class="con">
             <h2 class="a_tit"><i>WEBSITE</i></h2>
-                <div class="w_fr">
-                    <h4 class="w_tit all">ALL</h4>
-
-                    <h4 class="w_tit web">WEB</h4>
-                    <h4 class="w_tit mo">MOBILE</h4>
-                </div>
-        </div>
-        <div id="contact">
+            <div class="w_fr">
+                <ul>
+                    <li class="w_tit">
+                        <span>Web</span>
+                    </li>
+                    <ul class="site">
+                        <li class="d_img1">
+                            <span class="cover">'VannessDeco' 홈페이지 리뉴얼</span>
+                        </li>
+                        <li class="d_img2">
+                            <span class="cover">'Xiaomi' 홈페이지 리뉴얼</span>
+                        </li>
+                        <li class="d_img3">
+                            <span class="cover">'누룩꽃피는날' 홈페이지 리뉴얼</span>
+                        </li>
+                    </ul>
+                </ul>
+                <ul>
+                    <li class="w_tit">
+                        <span>Moblie</span>
+                    </li>
+                    <ul class="site">
+                        <li class="m_img">
+                            <span class="cover">'삐아'모바일 페이지<br> 리뉴얼</span>
+                        </li>
+                    </ul>
+                </ul>
+                <ul>
+                    <li class="w_tit">
+                        <span>Responsive</span>
+                    </li>
+                    <ul class="site">
+                        <li class="r_img1"><span class="cover">'IU'펜페이지 제작</span></li>
+                        <li class="r_img2"><span class="cover">'풀무원'홈페이지 리뉴얼</span></li>
+                    </ul>
+                </ul>
+            </div>
+        </div> 
+        <div id="contact" class="con">
             <h2 class="a_tit"><i>CONTACT</i></h2>
                 <h4 class="th">THANK YOU :)</h4>
                 <div class="btn_fr">
