@@ -65,8 +65,8 @@ p{line-height: 30px;margin-top: 2%;font-size: 18px;color: #868e96;}
 .copy{float: right;margin-top: 18%;margin-right: 15px;font-style: italic;color: #868e96;}
 .con_img {position: relative;width: 400px;height: 300px;display: block;float: left;}
 .con_img:hover .cover{display: block;z-index: 99;}
-.con_img::after{content: ""; display: none; background-color: rgba(0,0,0,0.7); width: 400px; height: 300px; position: absolute; top: 0; left: 0;}
-.m_img::after{content: ""; display: none; background-color: rgba(0,0,0,0.7); width: 300px; height:400px; position: absolute; top: 0; left: 0;}
+.con_img::after{content: ""; display: none; background-color: rgba(73,102,158,0.7); width: 400px; height: 300px; position: absolute; top: 0; left: 0;}
+.m_img::after{content: ""; display: none; background-color: rgba(73,102,158,0.7); width: 300px; height:400px; position: absolute; top: 0; left: 0;}
 .con_img:hover::after{display: block;}
-.cover{display: none;position: absolute;top: 40%;left: 0;width: 100%;color: #fff;text-align: center;font-size: 1.5rem;}
-.m_cover{display: none;position: absolute;top: 40%;left: -13%;width: 100%;color: #fff;text-align: center;font-size: 1.5rem;}
+.cover{display: none;position: absolute;top: 40%;left: 0;width: 100%;color: #eee;text-align: center;font-size: 1.5rem;}
+.m_cover{display: none;position: absolute;top: 40%;left: -13%;width: 100%;color: #eee;text-align: center;font-size: 1.5rem;}
