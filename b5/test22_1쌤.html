@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>웹문서22</title>
+    <script src="prefixfree.min.js"></script>
+    <style>
+    * { margin: 0; padding: 0; }
+    h2 { line-height: 4.8; text-align: center; }
+    h3 { line-height: 3.6; clear:both; }
+    hr { clear:both; }
+    ul { list-style: none; }
+    a { text-decoration: none; }
+    .css_tit { text-align:center; border-bottom:1px solid #333; }    
+    .lst { clear:both; width:1280px; margin:10px auto; position:relative; }    
+    .lst li { margin:10px; float:left; width: 300px; height: 300px;  }
+    .lst.sq li { overflow:hidden;}    
+    .lst .bx_fr { width:600px; height:300px; transition:0.5s; }
+    .lst li .tit_box { width:300px; height:300px; background:#282828; color:#fff; 
+        transition:0.5s;   position:relative; }    
+    .lst li .img_box { width: 300px; height: 300px; transition:0.5s; 
+         transition-timing-function:ease-in-out; }    
+    .lst .bx_fr .tit_box, .lst .bx_fr .img_box { float:left; }    
+    .tit { text-align:center; border-bottom:1px solid #fff; }
+    .com { padding:14px; }    
+    .lnk_box { text-align: center; line-height:1.3; padding-top: 36px; }   
+    .more { padding:8px 28px; border:1px solid #fff; color:#fff; border-radius:8px; font-size:14px; }   
+    .img_box img { display:block; width:100%; height:auto; }    
+        
+    .bx.sq1 .img_box, .bx.sq2 .img_box { clear:both; }        
+    .bx.sq1 .tit_box, .bx.sq2 .tit_box { clear:both; }    
+    .bx.sq1:hover .img_box { margin-top: -300px; }    
+    .bx.sq2 .tit_box { margin-top: -300px; }    
+    .bx.sq2:hover .tit_box { margin-top:0; }    
+        
+    .bx.sq3:hover .bx_fr { margin-left:-300px; }     
+    .bx.sq4 .bx_fr { margin-left:-300px; } 
+    .bx.sq4:hover .bx_fr { margin-left:0px; }  
+        
+    .blank{ clear:both; height:800px; }    
+    .lst.sq2 li { position:relative; overflow:visible; }
+    .lst.sq2 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; }   
+    .bx.sq5:hover .img_box {left:-75px; top:75px; width: 150px; height: 150px; }   
+    .bx.sq6:hover .img_box {left:75px; top:-75px; width: 150px; height: 150px; }     
+    .bx.sq7:hover .img_box {left:225px; top:75px; width: 150px; height: 150px; border-radius:150px; }     
+    .bx.sq8:hover .img_box {left:75px; top:225px; width: 150px; height: 150px; 
+        border-radius:150px; }  
+        
+    .lst.sq3 li { position:relative; overflow:hidden; }
+    .lst.sq3 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } .bx.sq9:hover .img_box { opacity:0.1; }   
+    .bx.sq10:hover .img_box { opacity:0.1; z-index:0; }     
+    .bx.sq11:hover .img_box { opacity:0.9; z-index:0; }
+    .bx.sq11:hover .tit_box { background:rgba(40,40,40,0.7); }  
+    .bx.sq12:hover .img_box { visibility:hidden; opacity:0.5; }    
+        
+    .lst.sq4 li { position:relative; overflow:hidden; }
+    .lst.sq4 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq4 .img_box img { height: 100%; }    
+    .bx.sq13:hover .img_box { border-radius:150px; width:0; height:0; top: 150px; left: 150px; }   
+    .bx.sq14:hover .img_box { transform:scale(0); border-radius:150px; }        
+    .bx.sq15:hover .img_box { width:0;  } 
+    .bx.sq16:hover .img_box { transform:skewX(180deg);  opacity:0; visibility:hidden; }     
+    .lst.sq5 li { position:relative; overflow:hidden; }
+    .lst.sq5 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq5 .tit_box { position:absolute; top:0; left:0; z-index:6; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0.6); }    
+    .lst.sq5 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq5 .img_box img { height: 100%; }            
+    .bx.sq17:hover .img_box { transform:scale(1.4); }    
+    .bx.sq18:hover .img_box { transform:scale(1.8) rotate(360deg); }        
+    .bx.sq19:hover .img_box { transform:scale(1.8) skewY(360deg);  } 
+    .bx.sq20:hover .img_box { transform:scale(1.8) translateX(-65px); }    
+        
+    .lst.sq6 li { position:relative; overflow:visible; }
+    .lst.sq6 li:before { content:""; display:block; width:300px; height:300px; 
+        box-sizing:border-box; border:10px solid rgba(255,255,255,0.7); 
+        position:absolute; top:0; left:0; z-index:6; opacity:0; transition:0.5s; 
+        transform:scale(0); }
+    .lst.sq6 li:hover::before { opacity:1; transform:scale(1); }  
+    .lst.sq6 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq6 .tit_box { position:absolute; top:0; left:0; z-index:6; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0.7); }    
+    .lst.sq6 li .more { position:absolute; bottom:30px; left:50%; margin-left:-49px; }   
+    .lst.sq6 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq6 .img_box img { height: 100%; } 
+    .bx.sq22 .tit, .bx.sq22 .com { font-size:1px; transition:0.5s; text-align:center; }
+    .bx.sq22:hover .tit { font-size:1.3em; } 
+    .bx.sq22:hover .com { font-size:14px; }  
+    .bx.sq23 .tit { margin-top:-120px; border:0; transition:0.5s; }     
+    .bx.sq23 .com { margin-left:-350px; width:300px; height:4em; box-sizing:border-box; transition:0.5s; transition-delay:0.5s; }      
+    .bx.sq23:hover .tit { margin-top:0px; border:0; }     
+    .bx.sq23:hover .com { margin-left:0; }    
+    .bx.sq24 .tit {  opacity:0; transform:rotateY(-180deg); transition:0.5s; transition-delay:0.5s;}      
+    .bx.sq24 .com {  opacity:0; transform:rotateY(180deg);  transition:0.5s; transition-delay:0.5s; }      
+    .bx.sq24:hover .tit { opacity:1; transform:rotateY(0deg); }    
+    .bx.sq24:hover .com { opacity:1; transform:rotateY(0deg); }    
+        
+    .lst.sq7 li { position:relative; overflow:hidden; }
+    .lst.sq7 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq7 .tit_box { position:absolute; top:0; left:0; z-index:6; overflow: hidden; 
+        opacity:1; background-color:rgba(40,40,40,0.5); }            
+    .bx.sq25 .tit_box { transform:translate(-300px, 0px); }    
+    .bx.sq26 .tit_box { transform:translate(0px, -300px); }        
+    .bx.sq27 .tit_box { transform:translate(300px, 0px); } 
+    .bx.sq28 .tit_box { transform:translate(0px, 300px); }           
+    .lst.sq7 .bx:hover .tit_box {  transform:translate(0px, 0px); }   
+    .lst.sq7 .img_box img { height: 100%; }   
+        
+    .lst.sq8 { perspective:600px; }    
+    .lst.sq8 li { position:relative; overflow:hidden; transition:0.5s; 
+        transform-origin:50% 50%; }
+    .lst.sq8 .img_box { position:absolute; top:0; left:0; overflow: hidden; 
+        transform:rotateY(0deg); transition:0.5s; } 
+    .lst.sq8 .tit_box { position:absolute; top:0; left:0; overflow: hidden; 
+        opacity:1; background-color:rgba(40,40,40,0.8); transform:rotateY(180deg);  } 
+    .lst.sq8 .bx.sq29 .tit_box {  transform:rotateX(180deg); transition:0s; }   
+    .bx.sq29:hover { transform:rotateX(180deg); }
+    .bx.sq29:hover .img_box { visibility:hidden; opacity:0; }  
+    .lst.sq8 .bx.sq30 .tit_box {  transform:rotateY(180deg); transition:0s; }   
+    .bx.sq30:hover { transform:rotateY(180deg); }
+    .bx.sq30:hover .img_box { visibility:hidden; opacity:0; }   
+    .lst.sq8 .bx.sq31 .tit_box {  transform:rotateX(180deg); transition:0s; }   
+    .bx.sq31:hover { transform:rotateX(-180deg); }
+    .bx.sq31:hover .img_box { visibility:hidden; opacity:0; }  
+    .lst.sq8 .bx.sq32 .tit_box {  transform:rotateY(180deg); transition:0s; }   
+    .bx.sq32:hover { transform:rotateY(-180deg); }
+    .bx.sq32:hover .img_box { visibility:hidden; opacity:0; }  
+    .lst.sq8 .img_box img { height: 100%; }       
+        
+    .lst.sq9 li { position:relative; overflow:hidden; }
+    .lst.sq9 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq9 .tit_box { position:absolute; top:0; left:0; z-index:6; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0.6); }    
+    .lst.sq9 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq9 .img_box img { height: 100%; }            
+    .bx.sq33 .img_box { transform:scale(1); }   
+    .bx.sq33:hover .img_box { transform:scale(1.5); }   
+    .bx.sq33 .tit_box { transform:scale(1.5); }            
+    .bx.sq33:hover .tit_box { transform:scale(1); } 
+    .bx.sq34 .img_box { transform:scale(1.5); }   
+    .bx.sq34:hover .img_box { transform:scale(1); }   
+    .bx.sq34 .tit_box { transform:scale(0.5); }            
+    .bx.sq34:hover .tit_box { transform:scale(1); } 
+    .bx.sq35 .img_box { transform:scale(1); }   
+    .bx.sq35:hover .img_box { transform:scale(1.5); }   
+    .bx.sq35 .tit_box { transform:scale(1.5); }            
+    .bx.sq35:hover .tit_box { transform:scale(1); background-color:rgba(255,255,255,0.4); color:#333; } 
+    .bx.sq35:hover .more { color:#333; border:1px solid #333; }    
+    .bx.sq36 .img_box { transform:scale(1.5); }   
+    .bx.sq36:hover .img_box { transform:scale(1); }   
+    .bx.sq36 .tit_box { transform:scale(0.5); }            
+    .bx.sq36:hover .tit_box { transform:scale(1);  background-color:rgba(255,255,255,0.4); color:#333; }         
+    .bx.sq36:hover .more { color:#333; border:1px solid #333; }  
+        
+    .lst.sq10 { perspective:600px; }      
+    .lst.sq10 li { position:relative; overflow:hidden; transform-style: preserve-3d; }
+    .lst.sq10 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq10 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0); }    
+    .lst.sq10 li:before, .lst.sq10 li:after { content:""; display:block;  position:absolute; background-color:rgba(0,0,0,0.45); opacity:0; 
+        transition:0.5s; z-index:6; }
+    .lst.sq10 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq10 .img_box img { height: 100%; }   
+    .bx.sq37:before { left:0; width:150px; height:300px; top:0; transform-origin:0% 50%; 
+        transform:translateX(-150px); }  
+    .bx.sq37:after { left:0;  width:150px; height:300px; top:0; transform-origin:0% 50%; 
+        transform:translateX(300px); }      
+    .bx.sq37:hover::before { transform:translateX(0px); opacity:1; } 
+    .bx.sq37:hover::after { transform:translateX(150px); opacity:1; }   
+    .bx.sq38:before { left:0; width:300px; height:150px; top:0; transform-origin:0% 0%; 
+        transform:translateY(-150px); }  
+    .bx.sq38:after { left:0;  width:300px; height:150px; top:0; transform-origin:0% 0%; transform:translateY(300px); }      
+    .bx.sq38:hover::before { transform:translateY(0px); opacity:1; } 
+    .bx.sq38:hover::after { transform:translateY(150px); opacity:1; }   
+    .bx.sq39:before { left:-150px; width:600px; height:300px; top:-50px; transform-origin:50% 50%; 
+        transform:rotate(45deg) translateY(-150px); }  
+    .bx.sq39:after { left:-150px;  width:600px; height:300px; top:-50px; transform-origin:50% 50%; transform:rotate(45deg) translateY(300px); }      
+    .bx.sq39:hover::before { transform:rotate(45deg) translateY(-114px); opacity:1; } 
+    .bx.sq39:hover::after { transform:rotate(45deg) translateY(186px); opacity:1; }   
+    .bx.sq40:before { left:-150px; width:600px; height:300px; top:-50px; transform-origin:50% 50%; 
+        transform:rotate(-45deg) translateY(-150px); }  
+    .bx.sq40:after { left:-150px;  width:600px; height:300px; top:-50px; transform-origin:50% 50%; transform:rotate(-45deg) translateY(300px); }      
+    .bx.sq40:hover::before { transform:rotate(-45deg) translateY(-114px); opacity:1; } 
+    .bx.sq40:hover::after { transform:rotate(-45deg) translateY(186px); opacity:1; }     
+        
+    .lst.sq11 { perspective:600px; }      
+    .lst.sq11 li { position:relative; overflow:hidden; transform-style: preserve-3d; }
+    .lst.sq11 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq11 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0); }    
+    .lst.sq11 li:before, .lst.sq11 li:after { content:""; display:block;  position:absolute; background-color:rgba(0,0,0,0.45); opacity:0; 
+        transition:0.5s; z-index:6; }
+    .lst.sq11 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq11 .img_box img { height: 100%; }   
+    .bx.sq41:before { left:0; width:150px; height:300px; top:0; 
+        transform-origin:0% 50%; transform:skewY(-180deg); }  
+    .bx.sq41:after { left:150px;  width:150px; height:300px; top:0; 
+        transform-origin:100% 50%; transform:skewY(180deg); }      
+    .bx.sq41:hover::before { transform:skewY(0deg); opacity:1; } 
+    .bx.sq41:hover::after { transform:skewY(0deg); opacity:1; }  
+    .bx.sq42:before { left:0; width:300px; height:150px; top:0; 
+        transform-origin:50% 0%; transform:skewX(-180deg); }  
+    .bx.sq42:after { left:0px;  width:300px; height:150px; top:150px; 
+        transform-origin:50% 100%; transform:skewX(180deg); }      
+    .bx.sq42:hover::before { transform:skewX(0deg); opacity:1; } 
+    .bx.sq42:hover::after { transform:skewX(0deg); opacity:1; }     
+    .bx.sq43:before { left:0; width:150px; height:300px; top:0; 
+        transform-origin:0% 50%; transform:rotateY(-180deg) skewY(-180deg); }  
+    .bx.sq43:after { right:0px;  width:150px; height:300px; top:0; 
+        transform-origin:100% 50%; transform:rotateY(180deg) skewY(180deg); }      
+    .bx.sq43:hover::before { transform:rotateY(0deg) skewY(0deg); opacity:1; } 
+    .bx.sq43:hover::after { transform:rotateY(0deg) skewY(0deg); opacity:1; }   
+    .bx.sq44:before { left:0; width:300px; height:150px; top:0; 
+        transform-origin:50% 0%; transform:rotateX(-180deg) skewX(-180deg); }  
+    .bx.sq44:after { left:0px;  width:300px; height:150px; top:150px; 
+        transform-origin:50% 100%; transform:rotateX(180deg) skewX(180deg); }      
+    .bx.sq44:hover::before { transform:rotateX(0deg) skewX(0deg); opacity:1; } 
+    .bx.sq44:hover::after { transform:rotateX(0deg) skewX(0deg); opacity:1; } 
+        
+    .lst.sq12 .linebox { width:300px; height:300px; position:absolute; top:0; left:0; 
+        background-color:transparent; z-index:6; }
+    .lst.sq12 .linebox span { display:block; }     
+    .lst.sq12 { perspective:600px; }      
+    .lst.sq12 li { position:relative; overflow:hidden; transform-style: preserve-3d; }
+    .lst.sq12 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden; } 
+    .lst.sq12 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0); }    
+    .lst.sq12 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq12 .img_box img { height: 100%; }    
+    .bx.sq45 .linebox span { width:300px; height:25%; background-color:rgba(0,0,0,0.45); transform-origin:50% 50%; transform:rotateX(90deg) scaleY(0); transition:0.5s; }
+    .bx.sq45:hover .linebox span { transform:rotateX(0deg) scaleY(1); }   
+    .bx.sq46 .linebox span { width:25%; height:300px; background-color:rgba(0,0,0,0.45); 
+        float:left; transform-origin:50% 50%; transform:rotateY(90deg) scaleX(0); transition:0.5s; }
+    .bx.sq46:hover .linebox span { transform:rotateY(0deg) scaleX(1); }   
+    .bx.sq47 .linebox { transform:rotate(45deg) scale(1.41421); }     
+    .bx.sq47 .linebox span { width:25%; height:100%; background-color:rgba(0,0,0,0.45); 
+        float:left; transform-origin:50% 50%; transform:rotateY(90deg) scaleX(0); transition:0.5s; }
+    .bx.sq47:hover .linebox span { transform:rotateY(0deg) scaleX(1); }   
+    .bx.sq48 .linebox { transform:rotate(-45deg) scale(1.41421); }     
+    .bx.sq48 .linebox span { width:25%; height:100%; background-color:rgba(0,0,0,0.45); 
+        float:left; transform-origin:50% 50%; transform:rotateY(90deg) scaleX(0); transition:0.5s; }
+    .bx.sq48:hover .linebox span { transform:rotateY(0deg) scaleX(1); }  
+        
+    .lst.sq13 li { position:relative; overflow:hidden; transform-style: preserve-3d;
+         }
+    .lst.sq13 .hv { transition:0.5s; transform-origin:50% 50%; transform:rotateX(0deg); 
+        width: 300px; height: 300px; position:relative; }    
+    .lst.sq13 .linebox { width:300px; height:300px; position:absolute; top:0; left:0; 
+        background-color:transparent; z-index:6; }
+    .lst.sq13 .linebox span { display:block; background-color:rgba(255, 255, 255, 1); 
+        position:absolute; transition:0.6s; } 
+    .lst.sq13 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden;
+        transform-origin:50% 50%; opacity:1;  } 
+    .lst.sq13 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        background-color:rgba(40,40,40,0.6);  transform-origin:50% 50%; opacity:0;   }   
+    .lst.sq13 .img_box img { height: 100%; }    
+    .lst.sq13 .bx:hover .tit_box { opacity:1; } 
+    .bx.sq49 .linebox span.line1 { width:0px; height: 20px; left: 0; top: 0; }    
+    .bx.sq49 .linebox span.line2 { width:20px; height: 0px; right: 0; top: 0; }    
+    .bx.sq49 .linebox span.line3 { width:0px; height: 20px; right: 0; bottom: 0; }    
+    .bx.sq49 .linebox span.line4 { width:20px; height: 0px; left: 0; bottom: 0; }    
+    .bx.sq49:hover .linebox span.line1 { width:300px; }    
+    .bx.sq49:hover .linebox span.line2 { height:300px; }  
+    .bx.sq49:hover .linebox span.line3 { width:300px; }  
+    .bx.sq49:hover .linebox span.line4 { height:300px; }  
+        
+    .bx.sq50 .linebox span.line1 { width:0px; height: 20px; right: 0; top: 0; }    
+    .bx.sq50 .linebox span.line2 { width:20px; height: 0px; left: 0; top: 0; }    
+    .bx.sq50 .linebox span.line3 { width:0px; height: 20px; left: 0; bottom: 0; }    
+    .bx.sq50 .linebox span.line4 { width:20px; height: 0px; right: 0; bottom: 0; }    
+    .bx.sq50:hover .linebox span.line1 { width:300px; }    
+    .bx.sq50:hover .linebox span.line2 { height:300px; }  
+    .bx.sq50:hover .linebox span.line3 { width:300px; }  
+    .bx.sq50:hover .linebox span.line4 { height:300px; } 
+        
+    .bx.sq51 .linebox { transition:0.35s; transform:translate(-300px, -300px); }    
+    .bx.sq51 .linebox span { transform:rotate(-45deg); background-color:rgba(255,255,255,0.65); transform-origin:50% 50%; transition:0.3s; }    
+    .bx.sq51 .linebox span.line1 { width:600px; height:70px; left:-150px; top:0; }    
+    .bx.sq51 .linebox span.line2 { width:600px; height:70px; left:-150px; top:100px; }       
+    .bx.sq51 .linebox span.line3 { width:600px; height:70px; left:-150px; top:200px; }
+    .bx.sq51 .linebox span.line4 { display:none; }  
+    .bx.sq51:hover .linebox { transform:translate(300px, 300px); }   
+    
+    .bx.sq52 .linebox { transition:0.35s; transform:translate(300px, -300px); }    
+    .bx.sq52 .linebox span { transform:rotate(45deg); background-color:rgba(255,255,255,0.65); transform-origin:50% 50%; transition:0.3s; }    
+    .bx.sq52 .linebox span.line1 { width:500px; height:70px; left:0; top:0; }    
+    .bx.sq52 .linebox span.line2 { width:500px; height:70px; left:0; top:100px; }       
+    .bx.sq52 .linebox span.line3 { width:500px; height:70px; left:0; top:200px; }
+    .bx.sq52 .linebox span.line4 { display:none; }  
+    .bx.sq52:hover .linebox { transform:translate(-300px, 300px); }  
+        
+    .lst.sq14 { perspective:600px; }      
+    .lst.sq14 li { position:relative;  transform-style: preserve-3d;  }
+    .lst.sq14 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden;
+        transition:0.5s; transform-origin:50% 50%; } 
+    .lst.sq14 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0.95); transition:0.5s; transform-origin:50% 50%; height: 300px; }  
+    .lst.sq14 .hv { width: 300px; height: 300px; overflow:visible; position:absolute; }    
+    .lst.sq14 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq14 .img_box img { height: 100%; }   
+    .bx.sq53 { overflow:hidden; }    
+    .bx.sq53 .tit_box { transform:translateY(-153px) rotateX(-90deg); }  
+    .bx.sq53 .img_box { transform:rotateX(0deg); }    
+    .bx.sq53:hover .tit_box {  transform:rotateX(0deg); }     
+    .bx.sq53:hover .img_box {  transform:translateY(-153px) rotateX(90deg); } 
+        
+    .bx.sq54 .hv { transform: scale(1.03);}    
+    .bx.sq54 .tit_box { transform:translateZ(-153px) rotateX(-90deg); }  
+    .bx.sq54 .img_box { transform:translateZ(-153px) rotateX(0deg); }    
+    .bx.sq54:hover .tit_box { transform:translateZ(-153px) rotateX(0deg); }  
+    .bx.sq54:hover .img_box { transform:translateZ(-153px) rotateX(90deg); }    
+    
+    .bx.sq55 .hv { transform: scale(1.03) rotateX(0deg); transition:0.5s; 
+        transform-origin:50% 50%; }    
+    .bx.sq55 .img_box { transform:translateZ(-150px) rotateX(360deg); } 
+    .bx.sq55 .tit_box { height: 300px; transform:translateZ(-150px) rotateX(0deg); }  
+/*
+    .bx.sq55:hover .img_box { transform:translateZ(-150px) rotateX(0deg); } 
+    .bx.sq55:hover .tit_box { transform:translateZ(-150px) rotateX(0deg);     }
+*/
+    .bx.sq55:hover .hv { transform: scale(1.03) rotateX(360deg); }  
+        
+    .bx.sq56 .hv { transform: scale(1.03) rotateY(-90deg); transition:0.5s; 
+         transform-origin:0% 50%; }    
+    .bx.sq56 .img_box { transform:translateZ(-150px) rotateY(180deg); } 
+    .bx.sq56 .tit_box { height: 300px; transform:translateZ(-150px) rotateY(0deg); }  
+    .bx.sq56:hover .hv { transform: scale(1.03) rotateY(0deg); } 
+        
+    .lst.sq15 { perspective:600px; }      
+    .lst.sq15 li { position:relative;  transform-style: preserve-3d;  overflow:hidden; 
+        border-radius:160px; }
+    .lst.sq15 .img_box { position:absolute; top:0; left:0; z-index:5; overflow: hidden;
+        transition:0.5s; border-radius:160px; } 
+    .lst.sq15 .tit_box { position:absolute; top:0; left:0; z-index:7; overflow: hidden; 
+        opacity:0; background-color:rgba(40,40,40,0.95); transition:0.5s; height: 300px; border-radius:160px; padding:28px; box-sizing: border-box; } 
+    .lst.sq15 .hv { width: 300px; height: 300px; overflow:visible; position:absolute; }   
+    .lst.sq15 .bx:hover .tit_box { opacity:1; }   
+    .lst.sq15 .img_box img { height: 100%; }  
+        
+    .bx.sq57 .tit_box { transform-origin:0% 0%; transform:rotate(-180deg); }
+    .bx.sq57:hover .tit_box {  transform:rotate(0deg);  }      
+    .bx.sq58 .tit_box { transform-origin:100% 0%; transform:rotate(180deg); }
+    .bx.sq58:hover .tit_box {  transform:rotate(0deg);  }          
+    .bx.sq59 .img_box { transform-origin:0% 100%; transform:rotate(0deg); }
+    .bx.sq59:hover .img_box {  transform:rotate(90deg);  }   
+    .bx.sq60 .img_box { transform-origin:100% 100%; transform:rotate(0deg); }
+    .bx.sq60:hover .img_box {  transform:rotate(-90deg);  }   
+    </style>
+</head>
+<body>
+    <h2>HOVER EFFECT</h2>
+    <h3 class="css_tit">Square Box - sliding</h3>
+    <ul class="lst sq">
+        <li class="bx sq1">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq2">
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+        </li>
+        <li class="bx sq3">
+            <div class="bx_fr">
+                <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+            </div>        
+        </li>
+        <li class="bx sq4">
+            <div class="bx_fr">
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+                <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            </div>               
+        </li>
+    </ul>
+    <hr><br>
+    <h3 class="css_tit">Square Box - translate</h3>
+    <ul class="lst sq2">
+        <li class="bx sq5">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq6">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq7">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq8">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>
+    <hr><br>
+    <h3 class="css_tit">Square Box - fadeoff</h3>
+    <ul class="lst sq3">
+        <li class="bx sq9">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq10">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq11">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq12">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>
+    <hr><br>
+    <h3 class="css_tit">Square Box - zoomout</h3>
+    <ul class="lst sq4">
+        <li class="bx sq13">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq14">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq15">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq16">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul> 
+    <hr><br>
+    <h3 class="css_tit">Square Box - zoomin </h3>
+    <ul class="lst sq5">
+        <li class="bx sq17">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq18">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq19">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq20">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - Box Content Motion</h3>
+    <ul class="lst sq6">
+        <li class="bx sq21">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq22">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq23">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq24">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - Overlapping</h3>
+    <ul class="lst sq7">
+        <li class="bx sq25">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq26">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq27">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq28">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - Flip Motion</h3>
+    <ul class="lst sq8">
+        <li class="bx sq29">
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+        </li>
+        <li class="bx sq30">
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+        </li>
+        <li class="bx sq31">
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>   
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>  
+        </li>
+        <li class="bx sq32">
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>          
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - ZoomInOut</h3>
+    <ul class="lst sq9">
+        <li class="bx sq33">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq34">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq35">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq36">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - coalesing</h3>
+    <ul class="lst sq10">
+        <li class="bx sq37">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq38">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq39">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq40">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>       
+    <hr><br>
+    <h3 class="css_tit">Square Box - Door Motion</h3>
+    <ul class="lst sq11">
+        <li class="bx sq41">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq42">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq43">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq44">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>      
+    <hr><br>
+    <h3 class="css_tit">Square Box - Blinding Motion</h3>
+    <ul class="lst sq12">
+        <li class="bx sq45">
+            <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+            <div class="linebox">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+            </div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq46">
+            <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+            <div class="linebox">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+            </div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>
+        </li>
+        <li class="bx sq47">
+            <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+            <div class="linebox">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+            </div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>     
+        </li>
+        <li class="bx sq48">
+            <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+            <div class="linebox">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+            </div>
+            <div class="tit_box">
+                <h3 class="tit">CORTEZ KIM</h3>
+                <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                <p class="lnk_box"><a href="" class="more">MORE</a></p>
+            </div>               
+        </li>
+    </ul>     
+   <hr><br>
+    <h3 class="css_tit">Square Box - line Motion</h3>
+    <ul class="lst sq13">
+        <li class="bx sq49">
+            <div class="hv">
+                <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+                <div class="linebox">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                    <span class="line4"></span>
+                </div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+            </div>       
+        </li>
+        <li class="bx sq50">
+            <div class="hv">
+                <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+                <div class="linebox">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                    <span class="line4"></span>
+                </div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+            </div>    
+        </li>
+        <li class="bx sq51">
+            <div class="hv">
+                <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+                <div class="linebox">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                    <span class="line4"></span>
+                </div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>     
+            </div>    
+        </li>
+        <li class="bx sq52">
+            <div class="hv">
+                <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+                <div class="linebox">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                    <span class="line4"></span>
+                </div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>   
+            </div>                
+        </li>
+    </ul>     
+    
+   <hr><br>
+    <h3 class="css_tit">Square Box - Axis Motion</h3>
+    <ul class="lst sq14">
+        <li class="bx sq53">
+            <div class="hv">
+                <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>    
+            </div>   
+        </li>
+        <li class="bx sq54">
+            <div class="hv">
+                <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+            </div>    
+        </li>
+        <li class="bx sq55">
+            <div class="hv">
+                <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>     
+            </div>    
+        </li>
+        <li class="bx sq56">
+            <div class="hv">
+                <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>   
+            </div>                
+        </li>
+    </ul>     
+    
+   <hr><br>
+    <h3 class="css_tit">Square Box - Axis Motion</h3>
+    <ul class="lst sq15">
+        <li class="bx sq57">
+            <div class="hv">
+                <div class="img_box"><img src="hv01.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>    
+            </div>   
+        </li>
+        <li class="bx sq58">
+            <div class="hv">
+                <div class="img_box"><img src="hv02.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>
+            </div>    
+        </li>
+        <li class="bx sq59">
+            <div class="hv">
+                <div class="img_box"><img src="hv03.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>     
+            </div>    
+        </li>
+        <li class="bx sq60">
+            <div class="hv">
+                <div class="img_box"><img src="hv04.jpg" alt="롤오버이미지"></div>
+                <div class="tit_box">
+                    <h3 class="tit">CORTEZ KIM</h3>
+                    <p class="com">Web project hover effect sample for animation example of cortez kim portfolio. very important product coding data.</p>
+                    <p class="lnk_box"><a href="" class="more">MORE</a></p>
+                </div>   
+            </div>                
+        </li>
+    </ul>     
+    <div class="blank"></div>
+</body>
+</html>

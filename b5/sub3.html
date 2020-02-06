@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/sub3.css">
+    <link rel="stylesheet" type="text/css" href="./font/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+</head>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+ <script> 
+
+  function initialize() { 
+
+      var myLatlng1 = new google.maps.LatLng(35.817711, 127.142084); 
+      var myLatlng2 = new google.maps.LatLng(35.958957, 126.978668); 
+      var myLatlng3 = new google.maps.LatLng(35.947572, 126.686464); 
+      var myLatlng4 = new google.maps.LatLng(36.890995, 126.638810); 
+      var mapOptions1 = { zoom: 17, center: myLatlng1, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP } 
+      var mapOptions2 = { zoom: 17, center: myLatlng2, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP } 
+      var mapOptions3 = { zoom: 17, center: myLatlng3, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP } 
+      var mapOptions4 = { zoom: 17, center: myLatlng4, mapTypeId: google.maps.MapTypeId.ROADMAP } 
+
+      var map1 = new google.maps.Map(document.getElementById('map_canvas1'), mapOptions1); 
+
+      var map2 = new google.maps.Map(document.getElementById('map_canvas2'), mapOptions2); 
+
+      var map3 = new google.maps.Map(document.getElementById('map_canvas3'), mapOptions3); 
+
+      var map4 = new google.maps.Map(document.getElementById('map_canvas4'), mapOptions4); 
+
+      
+
+      var marker1 = new google.maps.Marker({ position: myLatlng1, map: map1,
+
+        title: '누룩꽃피는날 본점'   
+
+      });   
+
+      var marker2 = new google.maps.Marker({ position: myLatlng2, map: map2,
+
+        title: '누룩꽃피는날 영등점'   
+
+      });   
+
+      var marker3 = new google.maps.Marker({ position: myLatlng3, map: map3,
+
+        title: '누룩꽃피는날 군산대점'   
+
+      });  
+
+      var marker4 = new google.maps.Marker({ position: myLatlng4, map: map4,
+
+        title: '누룩꽃피는날 당진점'   
+
+      });  
+
+  } 
+
+ </script> 
+<body>
+   <div class="wrap">
+        <header class="hd">
+          <div class="h_logo">
+           <a href="index.html">
+           <img src="./img/logo1.png" alt="로고"></a>
+           </div>
+            <nav id="tnb">
+                <ul class="t_menu">
+                    <li class="it1">
+                    <a href="#pop">로그인</a>
+                    </li>
+                    <li class="it2">
+                    <a href="./join.html">회원가입</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav id="gnb">
+            <ul class="m_menu">
+                    <li class="main"><a href="sub1.html">누룩꽃피는날</a></li>
+                    <li class="main"><a href="sub2.html">메뉴소개</a></li>
+                    <li class="main"><a href="sub3.html">매장안내</a></li>
+                    <li class="main"><a href="sub4.html">커뮤니티</a></li>
+            </ul>
+            </nav>
+        </header>
+    <body onload="initialize()"> 
+
+    <div class="t_fr">
+        <h2 class="t_tit">오시는 길</h2>
+        <input type="radio" name="ragm" class="rad" id="ra1" checked>
+        <input type="radio" name="ragm" class="rad" id="ra2">
+        <input type="radio" name="ragm" class="rad" id="ra3">
+        <input type="radio" name="ragm" class="rad" id="ra4">
+        <div class="b_fr">
+            <label for="ra1" class="ramb1">본점</label>
+            <label for="ra2" class="ramb2">익산 영등점</label>
+            <label for="ra3" class="ramb3">군산 군산대점</label>
+            <label for="ra4" class="ramb4">충청 당진점</label>
+        </div>
+        <ul class="m_box">
+            <li class="item1">
+                <h3 class="m_tit">본점 오시는길</h3>
+                <div id="map_canvas1"style="width:600px; height:400px;"></div>
+            </li>
+            <li class="item2">
+                <h3 class="m_tit">익산 영등점 오시는길</h3>
+                <div id="map_canvas2"style="width:600px; height:400px;"></div> 
+            </li>
+            <li class="item3">
+                <h3 class="m_tit">군산 군산대점 오시는길</h3>
+                <div id="map_canvas3"style="width:600px; height:400px;"></div>
+            </li>
+            <li class="item4">
+                <h3 class="m_tit">충청 당진점</h3>
+                <div id="map_canvas4"style="width:600px; height:400px;"></div> 
+            </li>
+        </ul>
+    </div>
+    <footer class="ft">
+            <div class="foot">
+                <div class="flogo">
+                <img src="./img/logo.png" alt="푸터로고">
+                </div>
+                <div class="cp">
+                    <p>전북 전주시 덕진구 덕진동1가 1314-180번지<br>
+                        (주)노른자 팩토리 대표 : 장성희<br>
+                        COPYRIGHTⓒ 2019 노른자팩토리 ALL RIGHTS RESERVED
+                    </p>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

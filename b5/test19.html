@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>웹 레이아웃2 - 스택형(static)2</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{margin: 0;}
+        .hd{background-color:#eee; padding: 20px;text-align: center;}
+        .gnb {background-color:#35c745; height: 50px;}
+        .hd_wrap {width: 400px; margin: 0 auto;}
+        .gnb a{display: block; color: #fff; float: left; text-align: center; padding: 14px; font-size: 14px; font-weight: bold; text-decoration: none;}
+        .gnb .logo a{margin-top: -32px;}
+        
+        .row{clear: both;}
+        .row::after{content: ""; display: table; clear: both;}
+        .bread{ padding-left: 25%;}
+        .col {float: left; padding: 10px}
+        .slide {width:25%;}
+        .con {width:75%; border-left: 5px solid #eee;}
+        
+        .ft{background-color:#eee; padding: 10px; text-align: center;}
+        .fnb{background: #333; height: 50px;}
+        .fnb a{color: white; text-decoration: none; display: block; float: left; text-align: center; padding: 14px; font-size: 14px;}
+        .ft_menu{width: 325px; margin: auto;}
+        </style>
+</head>
+<body>
+    <header class="hd">
+        <h1>This is header</h1>
+        <nav class="gnb">
+            <div class="hd_wrap">
+                <div class="menu left">
+                    <a href="">메뉴1</a>
+                    <a href="">메뉴2</a>            
+                </div>
+                <div class="menu logo">
+                    <a href=""><img src="https://placehold.it/120x42/fff" alt="로고"></a>
+                </div>
+            </div>
+            <div class="menu right">
+                <a href="">메뉴3</a>
+                <a href="">메뉴4</a>
+            </div>
+        </nav>
+    </header>
+    <main class="row">
+        <div class="bread">
+           <h2>여기는 현재 위치를 표시하는 breadcrumb 영역입니다.</h2>
+           <p><a href="">HOME</a> &gt; <span>SUB</span></p>
+        </div>
+        <aside class="col side">
+            <h2>Sidebar 영역</h2>
+            <ul>
+                <li><a href="">메뉴1</a></li>
+                <li><a href="">메뉴2</a></li>
+                <li><a href="">메뉴3</a></li>
+                <li><a href="">메뉴4</a></li>
+                <li><a href="">메뉴5</a></li>
+            </ul>    
+        </aside>
+        <section class="col con">
+            <figure>
+                <img src="https://placehold.it/1200x320" alt="배너">
+            </figure>
+            <h2>여기는 메인 콘텐츠 영역입니다.</h2>
+            <p class="para">
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </p>
+            <p class="para">
+                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+            </p>
+        </section>
+    </main>
+    <footer class="ft">
+        <nav class="fnb">
+            <div class="ft_wrap">
+                <div class="ft_menu">
+                    <a href="">메뉴1</a>
+                    <a href="">메뉴2</a>
+                    <a href="">메뉴3</a>
+                    <a href="">메뉴4</a>
+                    <a href="">메뉴5</a>
+                </div>
+            </div>
+        </nav>
+        <h1>여기는 푸터입니다.</h1>
+    </footer>
+</body>
+</html>

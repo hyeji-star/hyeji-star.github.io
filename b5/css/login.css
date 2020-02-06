@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+#pop{width: 100%;height: 100%;background: transparent;position: fixed;top: 0;left: 0;z-index: 999;}
+.pop_fr{position: relative;width: 600px;height: 350px;margin: 0 auto;top: 50%;margin-top: -175px;border: 2px solid #333;background-color: #fff;box-shadow: 1px 1px 10px #444;}
+.pop_tit{display: block;width: 250px;text-align: center;margin-left: 170px;margin-top: 50px;font-size: 45px;border-bottom: 3px solid saddlebrown;}
+.login{display: block;width: 250px;margin-left: 150px;margin-top: 35px;text-align: center;line-height: 2.5em;padding: 5px;font-weight: 600;}
+#btn{clear: both;}
+.ok{display: block;float: right;margin-right:50px;margin-top:-75px;padding: 20px;border:2px solid tan; background-color: tan;border-radius: 10px;font-size: 18px;font-weight: 600;text-align: center;}
+.no{display: block;float: right;margin-right: 25px;margin-top:-200px;padding: 10px;border:2px solid tan; background-color: tan;border-radius: 10px;font-size: 14px;font-weight: 600;text-align: center;}
+.ok a,.no a{color: #333;}

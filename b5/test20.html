@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>웹레이아웃3-목록형</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body, html{width: 100%;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        .hd, .con, .ft{clear: both;}
+        .con::after {content: ""; display: table; clear: both;}
+        .hd_wrap{width: 1200px; margin: 0 auto;}
+        .logo {display: block; width: 120px; margin: 0 auto; height: 44px; padding: 14px;}
+        .gnb{background: #333; color: #fff; clear: both; height: 50px;}
+        .gnb li {float: left;}
+        .gnb a{display: block; padding: 14px; text-align: center; font-size: 14px; font-weight: bold; color: #fff; }
+        .vs{width: 1200px; margin: 0 auto;}
+        .lst{clear: both; width: 1200px; margin:0 auto}
+        .lst li{float: left; padding: 10px;width: 280px;}
+        .lst li a{display: block; color:#333; }
+        .tit{line-height: 3.6; text-indent: 14px;}
+        .com{padding: 14px;  overflow: hidden; white-space: nowrap; text-overflow: ellipsis; height: 40px; }
+        .ft{background-color:#88cbe6; color:white;; text-align: center; padding: 28px 0;}
+    </style>
+</head>
+<body>
+    <header class="hd">
+       <div class="hd_wrap">
+            <a href="" class="logo">
+                <img src="https://placehold.it/120x44" alt="로고">
+            </a>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="">메뉴1</a></li>
+                    <li><a href="">메뉴2</a></li>
+                    <li><a href="">메뉴3</a></li>
+                    <li><a href="">메뉴4</a></li>
+                    <li><a href="">메뉴5</a></li>
+                </ul>
+            </nav>    
+        </div>
+    </header>
+    <main class="con">
+        <figure class="vs">
+            <main class="con">
+                <figure class="vs"><img src="https://placehold.it/1200x360/88cbe6/fff" alt=""></figure>
+                <div class="lst">
+                    <ul>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목1</h3>
+                                <p class="com">내용1 내용1 내용1 내용1 내용1 내용1 내용1 내용1 내용1</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목2</h3>
+                                <p class="com">내용2 내용2 내용2 내용2 내용2 내용2 내용2 내용2 내용2</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목3</h3>
+                                <p class="com">내용3</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목4</h3>
+                                <p class="com">내용4</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목5</h3>
+                                <p class="com">내용5</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목6</h3>
+                                <p class="com">내용6</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목7</h3>
+                                <p class="com">내용7</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목8</h3>
+                                <p class="com">내용8</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목9</h3>
+                                <p class="com">내용9</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목10</h3>
+                                <p class="com">내용10</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목11</h3>
+                                <p class="com">내용11</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목12</h3>
+                                <p class="com">내용12</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목13</h3>
+                                <p class="com">내용13</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목14</h3>
+                                <p class="com">내용14</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목15</h3>
+                                <p class="com">내용15</p>
+                            </a></li>
+                        <li><a href="">
+                                <img src="https://placehold.it/280x200/333" alt="" class="pic">
+                                <h3 class="tit">제목16</h3>
+                                <p class="com">내용16</p>
+                            </a></li>
+                    </ul>
+                </div>
+            </main>
+        </figure>
+    </main>
+    <footer class="ft">
+        <h1>푸터 입니다.</h1>
+    </footer>
+</body>
+</html>
