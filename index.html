@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
+    <link href="" type="image/png" rel="shortcuticon">
+    <meta property="og:title" content="포트폴리오">
+    <meta property="og:description" content="김혜지의 포트폴리오입니다.">
     <title>포트폴리오</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
@@ -26,7 +30,16 @@
                    	$("html,body").stop().animate({"scrollTop":next},1400,'easeInOutExpo');
                 };
             })
-            
+            $(function(){
+		    /* 탭 콘텐츠 */
+		    $("#btn_box label").click(function(){
+			var btn_ac = parseInt($(this).attr("tab-item"));
+			$("#btn_box label").removeClass("active");
+			$(this).addClass("active");
+			$("#content_box .tab_con").removeClass("active");
+			$("#content_box .tab_con").eq(btn_ac).addClass("active");
+		});
+	});
         })
     </script>
 </head>
@@ -84,43 +97,27 @@
                 </ul>
         </div>
         <div id="pf" class="con">
-            <h2 class="a_tit"><i>WEBSITE</i></h2>
-            <div class="w_fr">
-                <ul>
-                    <li class="w_tit">
-                        <span>Web</span>
-                    </li>
-                    <ul class="site">
-                        <li class="d_img1">
-                            <span class="cover">'VannessDeco' 홈페이지 리뉴얼</span>
-                        </li>
-                        <li class="d_img2">
-                            <span class="cover">'Xiaomi' 홈페이지 리뉴얼</span>
-                        </li>
-                        <li class="d_img3">
-                            <span class="cover">'누룩꽃피는날' 홈페이지 리뉴얼</span>
-                        </li>
-                    </ul>
-                </ul>
-                <ul>
-                    <li class="w_tit">
-                        <span>Moblie</span>
-                    </li>
-                    <ul class="site">
-                        <li class="m_img">
-                            <span class="cover">'삐아'모바일 페이지<br> 리뉴얼</span>
-                        </li>
-                    </ul>
-                </ul>
-                <ul>
-                    <li class="w_tit">
-                        <span>Responsive</span>
-                    </li>
-                    <ul class="site">
-                        <li class="r_img1"><span class="cover">'IU'펜페이지 제작</span></li>
-                        <li class="r_img2"><span class="cover">'풀무원'홈페이지 리뉴얼</span></li>
-                    </ul>
-                </ul>
+            <h2 class="a_tit"><i>SKILL</i></h2>
+            <div id="tab_box">
+                <div id="btn_box">
+                    <label for="" id="btn1" tab-item="0" class="active">Web</label>
+                    <label for="" id="btn2" tab-item="1">Mobile</label>
+                    <label for="" id="btn3" tab-item="2">Responsive</label>
+                </div>
+                <div id="content_box">
+                    <div class="tab_con active" tab-item="0">
+                        <img src="./img/baness.png" alt="탭이미지" class="d_img1">
+                        <img src="./img/xiomi.png" alt="탭이미지" class="d_img2">
+                        <img src="./img/nu.png" alt="탭이미지" class="d_img3">
+                    </div>
+                    <div class="tab_con" tab-item="1">
+                        <img src="./img/bb.png" alt="탭이미지" class="m_img">
+                    </div>
+                    <div class="tab_con" tab-item="2">
+                        <img src="./img/iu-re.png" alt="탭이미지" class="r_img1">
+                        <img src="./img/pu.png" alt="탭이미지" class="r_img2">
+                    </div>
+                </div>
             </div>
         </div> 
         <div id="contact" class="con">
@@ -135,12 +132,13 @@
                         <span class="em">E-MAIL : </span>
                         <span class="em">oo5880@naver.com</span>
                     </div>
-                    <div class="copyright">
-                        <span class="copy">COPYRIGHT ⓒ by KIMHYEJI. ALL RIGHTS RESERVED</span>
+                    <div class="copy_fr">
+                        <span class="copy">Copyright (c) KIMHYEJI. All rights reserved.</span>
                     </div>
                 </div>
         </div>
     </div>
+    
 </body>
 </html>
 
