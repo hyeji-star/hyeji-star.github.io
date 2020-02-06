@@ -15,15 +15,16 @@ body{overflow: hidden;}
 .tit:before,.tit:after{content:"";position: absolute;height: 7px;
   width: 0px;background:#49669e;transition:300ms;
   -webkit-transition:1s;-ms-transition:1s;opacity:0.3;left:50%;}
+  .on a{color: #152b52;border-bottom: 3px solid #fdcc8c;}
 .tit:before{bottom:0;}
 .tit:after{top:0}
 .tit:hover{letter-spacing:50px;}
 .tit:hover:before,.tit:hover:after{width: 95%;opacity:1;left:0;}
 .tit:hover{opacity:1;}
-
 .a_tit{font-size: 3em;font-family: 'Anton', sans-serif;color: #697d9e;width: 300px;text-align: right;border-bottom: 3px solid #697d9e;}
 .vs{background-image: url(./img/pro1.jpg);border: 8px solid #6187bd;width: 400px;height: 400px;background-repeat: no-repeat;background-size: cover;border-radius: 200px;margin-top: 10%;margin-left: 15%;box-shadow: 0 0 15px #333;}
-.col2{margin-left: 50%;margin-top: -20%;}
+.col{float: left;width: 640px;}
+.col2{float: right;width: 900px;margin-top: -25%;}
 .p_tit1{font-size: 2.5em;font-style: italic;font-weight: bold;border-bottom: 5px solid #49669e;width: 320px;font-family: Arial, Helvetica, sans-serif;}
 .p_tit{font-size: 2.5em;font-style: italic;font-weight: bold;border-bottom: 5px solid #49669e;width: 200px;font-family: Arial, Helvetica, sans-serif;}
 p{line-height: 30px;margin-top: 2%;font-size: 18px;color: #868e96;}
@@ -56,9 +57,11 @@ p{line-height: 30px;margin-top: 2%;font-size: 18px;color: #868e96;}
 #btn_box { width:100%; height:42px; overflow:hidden;margin-left: 8%; }
 #btn_box label { display:block; width:25%; height:42px; text-align:center; color:#868e96;; 
   line-height:42px; float:left; font-weight:bold; cursor:pointer; font-size: 1.5rem;}
-#btn_box label.active { background-color:#315472; color:#fff; }
+#btn_box label.active {background-color:#315472; color:#fff;}
 #content_box { width:100%; height:400px; overflow:hidden;margin-left: 3%;}
 #content_box .tab_con { display:none; margin-top: 8%;}
 .tab_con > img{margin-left: 3%;}
 #content_box .tab_con.active { display:block; }
 .copy{float: right;margin-top: 18%;margin-right: 15px;font-style: italic;color: #868e96;}
+.tab_con img{position: relative;width: 400px;height: 300px;display: block;float: left;}
+.tab_con img::after{content: ""; display: block; background-color: rgba(0,0,0,0.7); width: 100%; height: 100%; position: absolute; top: 0; left: 0;}

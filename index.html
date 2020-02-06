@@ -39,6 +39,30 @@
 			$("#content_box .tab_con").removeClass("active");
 			$("#content_box .tab_con").eq(btn_ac).addClass("active");
 		});
+        $(window).on("scroll",function(){
+                var ht =$(window).height();
+                var scroll =$(window).scrollTop();
+                if(scroll>=ht*0 && scroll<ht*1){
+                    $(".it").removeClass("on")
+                    $(".it1").addClass("on")
+                }
+                if(scroll>=ht*1 && scroll<ht*2){
+                    $(".it").removeClass("on")
+                    $(".it2").addClass("on")
+                }
+                if(scroll>=ht*2 && scroll<ht*3){
+                    $(".it").removeClass("on")
+                    $(".it3").addClass("on")
+                }
+                if(scroll>=ht*3 && scroll<ht*4){
+                    $(".it").removeClass("on")
+                    $(".it4").addClass("on")
+                }
+                if(scroll>=ht*4 && scroll<ht*5){
+                    $(".it").removeClass("on")
+                    $(".it5").addClass("on")
+                }
+            })
 	});
         })
     </script>
@@ -48,18 +72,18 @@
         <header class="hd">
             <div class="menu_box">
                 <ul class="menu">
-                    <li class="it"><a href="#main">HOME</a></li>
-                    <li class="it"><a href="#about">ABOUT</a></li>
-                    <li class="it"><a href="#skill">SKILL</a></li>
-                    <li class="it"><a href="#pf">WEBSITE</a></li>
-                    <li class="it"><a href="#contact">CONTACT</a></li>
+                    <li class="it it1"><a href="#main">HOME</a></li>
+                    <li class="it it2"><a href="#about">ABOUT</a></li>
+                    <li class="it it3"><a href="#skill">SKILL</a></li>
+                    <li class="it it4"><a href="#pf">WEBSITE</a></li>
+                    <li class="it it5"><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
         </header>
         <div id="main" class="con">
             <div class="tit_box">
                 <h1 class="tit">HAZZY'S PORTFOLIO</h1>
-            </div>
+            </div>       
         </div>
         <div id="about" class="con">
             <div class="col_fr">
