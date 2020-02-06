@@ -61,14 +61,4 @@ p{line-height: 30px;margin-top: 2%;font-size: 18px;color: #868e96;}
 #content_box .tab_con { display:none; margin-top: 8%;}
 .tab_con > img{margin-left: 3%;}
 #content_box .tab_con.active { display:block; }
-
-
-
-/* .m_img{background-image: url(./img/bb.png);width: 300px;height: 00px;background-position: center;margin-left: 25%;margin-top: 3%;position: relative;}
-.m_img:hover > .cover{opacity: 1;}
-.r_img1{background-image: url(./img/iu-re.png);width: 300px;height: 00px;background-position: center;margin-left: 25%;margin-top: 3%;position: relative;}
-.r_img1:hover > .cover{opacity: 1;}
-.r_img2{background-image: url(./img/pu.png);width: 300px;height: 00px;background-position: center;margin-left: 25%;margin-top: 3%;position: relative;}
-.r_img2:hover > .cover{opacity: 1;} */
-
 .copy{float: right;margin-top: 18%;margin-right: 15px;font-style: italic;color: #868e96;}
